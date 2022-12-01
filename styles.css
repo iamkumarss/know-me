@@ -1,0 +1,68 @@
+:root {
+    --backgroundColor: #333333ff;
+    --textBaseColor: #fff; 
+}
+
+body {
+    background-color: var(--backgroundColor);
+    font-family: sans-serif;
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: var(--textBaseColor);
+}
+
+
+span {
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+span::after,
+span::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -20px;
+    right: 0;
+    display: inline-block;
+}
+
+span::after {
+    width: 0.1rem;
+    background-color: var(--textBaseColor);
+    animation: animate 3s infinite, opacityAnimation 3s infinite;
+}
+span::before {
+    background-color: var(--backgroundColor);
+    animation: animate 3s infinite;
+}
+
+@keyframes animate {
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes opacityAnimation {
+    to {
+        opacity: 0.2;
+    }
+}
+
+
+/* For smaller screen size */
+@media (width < 450px) {
+
+    .texts {
+        width: min-content;
+        text-align: center;
+    }
+}
